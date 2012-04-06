@@ -1,9 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Core", "StrongMonkey.Core\StrongMonkey.Core.csproj", "{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLLs", "DLLs", "{98DFA991-8295-45B2-9841-4A7792FB952D}"
+	ProjectSection(SolutionItems) = preProject
+		Dlls\CookComputing.XmlRpcV2.dll = Dlls\CookComputing.XmlRpcV2.dll
+		Dlls\NLog.dll = Dlls\NLog.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}.Debug|x86.Build.0 = Debug|Any CPU
+		{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}.Release|x86.ActiveCfg = Release|Any CPU
+		{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = StrongMonkey.Core\StrongMonkey.Core.csproj
 	EndGlobalSection
 EndGlobal

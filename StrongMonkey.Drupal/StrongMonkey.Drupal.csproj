@@ -57,4 +57,7 @@
       <Name>StrongMonkey.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README" />
+  </ItemGroup>
 </Project>

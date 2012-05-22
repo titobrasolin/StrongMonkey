@@ -247,8 +247,6 @@ namespace StrongMonkey.Drupal
 
 				_sessionData = ServiceSystem.UserLogin (username, password);
 				if (_sessionData.user.name == username) {
-					ServiceSystem.CookieContainer.Add (new Cookie (_sessionData.sessid, _sessionData.session_name, "/", "*"));
-
 					_isLoggedIn = true;
 				} else {
 					_isLoggedIn = false;

@@ -63,7 +63,9 @@ namespace StrongMonkey.Core
 		event DrupalAsyncCompletedEventHandler<object> MenuRetrieveCompleted;
 
 		event DrupalAsyncCompletedEventHandler<XmlRpcStruct> ViewsRetrieveCompleted;
-		
+
+		event DrupalAsyncCompletedEventHandler<XmlRpcStruct> DefinitionIndexCompleted;
+
 		#endregion
 
 		bool Login (string username, string password);
@@ -239,6 +241,13 @@ namespace StrongMonkey.Core
 		
 		XmlRpcStruct ViewsRetrieve(string view_name, string display_id, XmlRpcStruct args, int offset, int limit, object return_type, XmlRpcStruct filters);
 		void ViewsRetrieveAsync(string view_name, string display_id, XmlRpcStruct args, int offset, int limit, object return_type, XmlRpcStruct filters, object userState);	
+
+		#endregion
+
+		#region Definition
+		
+		XmlRpcStruct DefinitionIndex();
+		void DefinitionIndexAsync(object userState);
 
 		#endregion
 	}

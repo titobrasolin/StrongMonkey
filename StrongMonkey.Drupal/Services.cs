@@ -61,7 +61,8 @@ namespace StrongMonkey.Drupal
 		private AsyncCallback UserRegisterOperationCompleted;
 		private AsyncCallback MenuRetrieveOperationCompleted;
 		private AsyncCallback ViewsRetrieveOperationCompleted;
-		
+		private AsyncCallback DefinitionIndexOperationCompleted;
+
 		#endregion
 		
 		#region Public Events
@@ -112,7 +113,8 @@ namespace StrongMonkey.Drupal
 		public event DrupalAsyncCompletedEventHandler<DrupalUser> UserRegisterCompleted;
 		public event DrupalAsyncCompletedEventHandler<object> MenuRetrieveCompleted;
 		public event DrupalAsyncCompletedEventHandler<XmlRpcStruct> ViewsRetrieveCompleted;
-		
+		public event DrupalAsyncCompletedEventHandler<XmlRpcStruct> DefinitionIndexCompleted;
+
 		#endregion
 
 		#region Constructor(s)
@@ -1826,6 +1828,45 @@ namespace StrongMonkey.Drupal
 				} catch (Exception ex) {
 					HandleException (ex, "OnViewsRetrieveCompleted");
 					this.ViewsRetrieveCompleted (this, new DrupalAsyncCompletedEventArgs<XmlRpcStruct> (result, ex, asyncResult.AsyncState));
+				}
+			}
+		}
+
+		#endregion
+
+		#region Definition
+
+		public XmlRpcStruct DefinitionIndex ()
+		{
+			ClearErrors ();
+			XmlRpcStruct res = null;
+			try {
+				res = ServiceSystem.DefinitionIndex ();
+			} catch (Exception ex) {
+				HandleException (ex, "DefinitionIndex");
+			}
+			return res;
+		}
+		
+		public void DefinitionIndexAsync (object asyncState)
+		{
+			if (this.DefinitionIndexOperationCompleted == null) {
+				this.DefinitionIndexOperationCompleted = new AsyncCallback (this.OnDefinitionIndexCompleted);
+			}
+			ServiceSystem.BeginDefinitionIndex (this.DefinitionIndexOperationCompleted, asyncState);
+		}
+
+		void OnDefinitionIndexCompleted (IAsyncResult asyncResult)
+		{
+			if (this.DefinitionIndexCompleted != null) {
+				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
+				XmlRpcStruct result = null;
+				try {
+					result = ((IServiceSystem)clientResult.ClientProtocol).EndDefinitionIndex (asyncResult);
+					this.DefinitionIndexCompleted (this, new DrupalAsyncCompletedEventArgs<XmlRpcStruct> (result, null, asyncResult.AsyncState));
+				} catch (Exception ex) {
+					HandleException (ex, "OnDefinitionIndexCompleted");
+					this.DefinitionIndexCompleted (this, new DrupalAsyncCompletedEventArgs<XmlRpcStruct> (result, ex, asyncResult.AsyncState));
 				}
 			}
 		}

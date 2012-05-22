@@ -479,5 +479,18 @@ namespace StrongMonkey.Drupal
         XmlRpcStruct EndViewsRetrieve(IAsyncResult asyncResult);
 
 		#endregion
+
+		#region Definition
+		
+		[XmlRpcMethod("definition.index")]
+        XmlRpcStruct DefinitionIndex();
+
+        [XmlRpcBegin("definition.index")]
+        IAsyncResult BeginDefinitionIndex(AsyncCallback callback, object asyncState);
+
+        [XmlRpcEnd("definition.index")]
+        XmlRpcStruct EndDefinitionIndex(IAsyncResult asyncResult);
+
+		#endregion
 	}
 }

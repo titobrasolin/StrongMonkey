@@ -37,7 +37,7 @@ namespace StrongMonkey.Core {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.riservatapersonale.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://strongmonkey.net")]
         public string DrupalURL {
             get {
                 return ((string)(this["DrupalURL"]));
@@ -49,7 +49,7 @@ namespace StrongMonkey.Core {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("xmlrpc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("services/xmlrpc")]
         public string EndPoint {
             get {
                 return ((string)(this["EndPoint"]));

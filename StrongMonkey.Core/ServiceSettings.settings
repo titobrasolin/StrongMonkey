@@ -6,10 +6,10 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="DrupalURL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.riservatapersonale.com</Value>
+      <Value Profile="(Default)">http://strongmonkey.net</Value>
     </Setting>
     <Setting Name="EndPoint" Type="System.String" Scope="User">
-      <Value Profile="(Default)">xmlrpc</Value>
+      <Value Profile="(Default)">services/xmlrpc</Value>
     </Setting>
     <Setting Name="UseSessionID" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

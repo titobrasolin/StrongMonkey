@@ -5,7 +5,7 @@ public partial class MainWindow
 {
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
-	private global::Gtk.NodeView view;
+	private global::Gtk.TreeView view;
 	
 	protected virtual void Build ()
 	{
@@ -13,7 +13,13 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
+		this.Icon = global::Stetic.IconLoader.LoadIcon (
+			this,
+			"gtk-dialog-info",
+			global::Gtk.IconSize.Menu
+		);
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+		this.BorderWidth = ((uint)(6));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox1 = new global::Gtk.VBox ();
 		this.vbox1.Name = "vbox1";
@@ -23,7 +29,7 @@ public partial class MainWindow
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-		this.view = new global::Gtk.NodeView ();
+		this.view = new global::Gtk.TreeView ();
 		this.view.CanFocus = true;
 		this.view.Name = "view";
 		this.GtkScrolledWindow.Add (this.view);
@@ -35,7 +41,7 @@ public partial class MainWindow
 			this.Child.ShowAll ();
 		}
 		this.DefaultWidth = 400;
-		this.DefaultHeight = 300;
+		this.DefaultHeight = 433;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 	}

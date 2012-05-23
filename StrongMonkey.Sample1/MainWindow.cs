@@ -14,23 +14,21 @@ public partial class MainWindow: Gtk.Window
 		ServiceSettings.Default.DrupalURL = "http://strongmonkey.net";
 		ServiceSettings.Default.EndPoint = "services/xmlrpc";
 
-		// Create a column with title Artist and bind its renderer to model column 0
 		view.AppendColumn (
-			"Resource",
+			"Operation",
 			new Gtk.CellRendererText (),
 			"text",
 			0
 		);
  
-		// Create a column with title 'Song Title' and bind its renderer to model column 1
 		view.AppendColumn (
-			"Description",
+			"Enabled",
 			new Gtk.CellRendererText (),
 			"text",
 			1
 		);
 
-		view.NodeStore = Store;
+		view.Model = this.MyTreeStore;
 	}
 	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -39,24 +37,30 @@ public partial class MainWindow: Gtk.Window
 		a.RetVal = true;
 	}
 
-	Gtk.NodeStore store;
+	Gtk.TreeStore myTreeStore;
 
-	Gtk.NodeStore Store {
+	Gtk.TreeStore MyTreeStore {
 		get {
-			if (store == null) {
-				store = new Gtk.NodeStore (typeof(MyTreeNode));
+			if (myTreeStore == null) {
+				myTreeStore = new Gtk.TreeStore (typeof(string), typeof(string));
 				XmlRpcStruct idx = DrupalConnection.DefinitionIndex ();
-				XmlRpcStruct resources = idx ["resources"] as XmlRpcStruct;
+				XmlRpcStruct resources = (XmlRpcStruct)idx ["resources"];
 
+				Gtk.TreeIter iter;
+				XmlRpcStruct operations;
+				// TODO: DISPLAY ACTIONS, RELATIONSHIPS AND OPERATIONS.
 				foreach (string resKey in resources.Keys) {
-					store.AddNode (new MyTreeNode (
-					resKey,
-					""
-					)
-					);
+					iter = myTreeStore.AppendValues (resKey);
+					operations = ((XmlRpcStruct)resources[resKey])["operations"] as XmlRpcStruct;
+					if (operations == null) {
+						operations = ((XmlRpcStruct)resources[resKey])["actions"] as XmlRpcStruct;
+					}
+					foreach (string opKey in operations.Keys) {
+						myTreeStore.AppendValues (iter, opKey, ((int)((XmlRpcStruct)operations[opKey])["enabled"] > 0).ToString().ToLower());
+					}
 				}
 			}
-			return store;
+			return myTreeStore;
 		}
 	}
 

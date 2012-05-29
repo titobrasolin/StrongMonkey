@@ -1,0 +1,26 @@
+<Addin
+	id="StrongMonkey.Core"
+	version="0.8"
+	name="Core StrongMonkey Library"
+	description="Provides core elements to the application."
+	author="Tito Brasolin"
+	isroot = "true"
+	copyright="GNU General Public License v2 (GPL-2)"
+	category="core">
+	
+	<Runtime>
+		<Import assembly="StrongMonkey.Core.dll"/>
+	</Runtime>
+	
+	<ExtensionPoint path = "/StrongMonkey/EntryPoints">
+		<ExtensionNode name="EntryPoint" type="StrongMonkey.Core.Extensions.EntryPointExtension"/>
+	</ExtensionPoint>
+	
+	<ExtensionPoint path = "/StrongMonkey/InitializeMethods">
+		<ExtensionNode name="Method" type="StrongMonkey.Core.Extensions.StaticMethodExtension"/>
+	</ExtensionPoint>
+	
+	<ExtensionPoint path = "/StrongMonkey/ShutdownMethods">
+		<ExtensionNode name="Method" type="StrongMonkey.Core.Extensions.StaticMethodExtension"/>
+	</ExtensionPoint>
+</Addin>

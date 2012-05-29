@@ -1,0 +1,455 @@
+<Addin
+	id="StrongMonkey.Client.GtkGui"
+	version="0.8"
+	name="StrongMonkey GTK+ Interface"
+	description="Provides the main GTK+ graphical interface entry point."
+	author="Tito Brasolin"
+	copyright="GNU General Public License v2 (GPL-2)"
+	category="core">
+
+	<!-- ======================================================================= -->
+	<!-- ADDIN: You must provide the id, version, category, name, description,
+		author and copyright tags to fully describe a working addin. -->
+	<!-- ======================================================================= -->
+	
+	<!-- =================================================================== -->
+	<!-- ASSEMBLY: Must point to the DLL file of the assembly to be loaded. -->
+	<!-- =================================================================== -->
+	
+	<Runtime>
+		<Import assembly="StrongMonkey.Client.GtkGui.dll"/>
+	</Runtime>
+	
+	<!-- =================================================================== -->
+	<!-- DEPENDENCIES: List all the other addin ids and their versions that
+		you need available to this one. -->
+	<!-- =================================================================== -->
+	
+	<Dependencies>
+		<Addin id="StrongMonkey.Core" version="0.8" />
+<!--		<Addin id="StrongMonkey.Protocol" version="0.8" /> -->
+<!--		<Addin id="StrongMonkey.Client" version="0.8" /> -->
+<!--		<Addin id="StrongMonkey.Gui" version="0.8" /> -->
+<!--		<Addin id="StrongMonkey.Gui.GtkGui" version="0.8" /> -->
+	</Dependencies>
+	
+	<!-- =================================================================== -->
+	<!-- CONDITIONS: These will be used to determine certain conditions within
+		the addin file, especially with menus. -->
+	<!-- =================================================================== -->
+	
+	<ConditionType id="MainWindowVisible" type="StrongMonkey.Client.GtkGui.Conditions.MainWindowVisibleCondition" />
+<!--	<ConditionType id="ActiveConversationSession" type="StrongMonkey.Client.GtkGui.Conditions.ActiveConversationSessionCondition" /> -->
+	
+	<!-- =================================================================== -->
+	<!-- Extensions: Specific extensions that will be used within the different
+		gtk gui plugins that will be written. -->
+	<!-- =================================================================== -->
+	
+	<ExtensionPoint path = "/StrongMonkey/Gui/Widgets/Preference">
+		<ExtensionNode name="Widget" type="StrongMonkey.Client.GtkGui.PreferenceWidgetExtension"/>
+	</ExtensionPoint>
+	
+<!--	<Extension path = "/StrongMonkey/Backends/Notification">
+		<Backend type="StrongMonkey.Client.GtkGui.GtkNotificationBackend"/>
+	</Extension>
+	
+	<Extension path = "/StrongMonkey/Backends/ActivityUtility">
+		<Handler method="StrongMonkey.Client.GtkGui.GtkActivityUtility.OnActivity" />
+	</Extension>-->
+	
+	<!-- =================================================================== -->
+	<!-- CONTACT TREE MANAGER: The contact tree items are rendered using
+		instructions from these managers, you will need to provide one for
+		this protocol if you want to render the items with custom details. -->
+	<!-- =================================================================== -->
+	
+<!--	<ExtensionPoint path = "/StrongMonkey/Gui/ContactTreeManagers">
+		<ExtensionNode name="Manager" type="StrongMonkey.Client.GtkGui.ContactTreeManagerExtension"/>
+	</ExtensionPoint>-->
+	
+<!--	<Extension path = "/StrongMonkey/Gui/ContactTreeManagers">
+		<Manager protocol="GEN" type="StrongMonkey.Client.GtkGui.GeneralContactTreeManager" />
+	</Extension>-->
+	
+	<!-- =================================================================== -->
+	<!-- PREFERENCE PANEL: The preference panel option that shows up inside the
+		dialog. The name, category, icon, and type must be specified. -->
+	<!-- =================================================================== -->
+	
+<!--	<Extension path = "/StrongMonkey/Gui/Widgets/Preference">
+		<Widget name="Addins" category="General" icon="strongmonkey-preferences-addins" type="StrongMonkey.Client.GtkGui.PluginPreferenceWidget"/>
+		<Widget name="Interface" category="General" icon="strongmonkey-preferences-windows" type="StrongMonkey.Client.GtkGui.GtkPreferenceWidget"/>
+		<Widget name="Logging" category="General" icon="strongmonkey-preferences-logging" type="StrongMonkey.Client.GtkGui.LoggingPreferenceWidget" />
+		<Widget name="Proxy" category="General" icon="strongmonkey-preferences-proxy" type="StrongMonkey.Client.GtkGui.ProxyPreferenceWidget" />
+		<Widget name="Transfers" category="General" icon="strongmonkey-transfer" type="StrongMonkey.Client.GtkGui.TransferPreferenceWidget"/>
+		
+		<Widget name="Emoticons" category="Themes" icon="strongmonkey-emoticon" type="StrongMonkey.Client.GtkGui.EmoticonPreferenceWidget"/>
+		<Widget name="Messages" category="Themes" icon="strongmonkey-conversation" type="StrongMonkey.Client.GtkGui.MessageDisplayPreferenceWidget"/>
+		<Widget name="Sounds" category="Themes" icon="strongmonkey-sounds" type="StrongMonkey.Client.GtkGui.SoundPreferenceWidget"/>
+
+		<Widget name="Now Playing" category="Add-ons" icon="strongmonkey-sounds" type="StrongMonkey.Client.GtkGui.SongInformationPreferenceWidget"/>
+	</Extension>-->
+	
+	<!-- =================================================================== -->
+	<!-- ACTIVITIES: Any special activity that is performed within the protocol
+		that needs to get back to the activity utility must be defined here to
+		be picked up by the application. -->
+	<!-- =================================================================== -->
+	
+<!--	<Extension path = "/StrongMonkey/Activities/PreProcessors">
+		<Processor activity="StrongMonkey.Protocol.EntityPresenceChangeActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityPreProcessor.OnEntityPresenceChangeActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.EntityMessageChangeActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityPreProcessor.OnEntityMessageChangeActivity" />
+		
+		<Processor activity="StrongMonkey.Protocol.EntityNameChangeActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityPreProcessor.OnEntityNameChangeActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.EntityImageChangeActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityPreProcessor.OnEntityImageChangeActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.ReceivedMessageActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityPreProcessor.OnReceivedMessageActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.ReceivedOtherActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityPreProcessor.OnReceivedOtherActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.ReceivedFileActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityPreProcessor.OnReceivedFileActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.NewContactActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityPreProcessor.OnNewContactActivity" />
+	</Extension>-->
+	
+<!--	<Extension path = "/StrongMonkey/Activities/Processors">
+		<Processor activity="StrongMonkey.Protocol.ReceivedMessageActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityListener.OnReceivedMessageActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.ReceivedOtherActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityListener.OnReceivedOtherActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.ReceivedFileActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityListener.OnReceivedFileActivity" />
+			
+		<Processor activity="StrongMonkey.Protocol.NewContactActivity"
+			method="StrongMonkey.Client.GtkGui.GtkActivityListener.OnNewContactActivity" />
+	</Extension>-->
+	
+	<!-- =================================================================== -->
+	<!-- ENTRY POINT: This is the starting function that will be used as the entry
+		point of the application. -->
+	<!-- =================================================================== -->
+	
+	<Extension path = "/StrongMonkey/EntryPoints">
+		<EntryPoint type="MainWindow" _class="StrongMonkey.Client.GtkGui.Windows.MainWindow" _method="ExecuteEntryPoint" />
+	</Extension>
+	
+	<!-- ============================================================================= -->
+	<!-- ANIMATIONS: Any animations that need to be described for this specific addin. -->
+	<!-- ============================================================================= -->
+	
+<!--	<Extension path = "/StrongMonkey/Animations">
+		<GtkAnim _theme="default" _id="strongmonkey-typing_anim" _resource="other_strongmonkey-typing_anim.gif" _iconSize="other" />
+	</Extension>-->
+	
+	<!-- =================================================================== -->
+	<!-- ICONS: Any icons that need to be described for this specific addin. -->
+	<!-- =================================================================== -->
+	
+	<Extension path = "/StrongMonkey/Icons">
+		<!-- Other Icons -->
+		<GtkIcon _theme="default" _id="strongmonkey-mono" _resource="other_strongmonkey-mono.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="display-fade" _resource="other_display-fade.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="frame-huge" _resource="other_frame-huge.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="frame-info" _resource="other_frame-info.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="frame-large" _resource="other_frame-large.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="frame-medium" _resource="other_frame-medium.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="frame-small" _resource="other_frame-small.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-away" _resource="other_strongmonkey-tray-away.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-brb" _resource="other_strongmonkey-tray-brb.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-busy" _resource="other_strongmonkey-tray-busy.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-email" _resource="other_strongmonkey-tray-email.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-idle" _resource="other_strongmonkey-tray-idle.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-invisible" _resource="other_strongmonkey-tray-invisible.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-offline" _resource="other_strongmonkey-tray-offline.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-online" _resource="other_strongmonkey-tray-online.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-pending" _resource="other_strongmonkey-tray-pending.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-unread" _resource="other_strongmonkey-tray-unread.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-alert" _resource="other_strongmonkey-tray-alert.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-tray-transfer" _resource="other_strongmonkey-tray-transfer.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-typing_stopped" _resource="other_strongmonkey-typing_stopped.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-typing_blank" _resource="other_strongmonkey-typing_blank.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-displayimage" _resource="other_strongmonkey-displayimage.png" _iconSize="other" />
+		<GtkIcon _theme="default" _id="strongmonkey-about" _resource="other_strongmonkey-about.png" _iconSize="other" />
+		
+		<!-- Large Icons -->
+		<GtkIcon _theme="default" _id="strongmonkey" _resource="large_strongmonkey.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-add-contact" _resource="large_strongmonkey-add-contact.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-add-group" _resource="large_strongmonkey-add-group.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-contact" _resource="large_strongmonkey-contact.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-copy-contact" _resource="large_strongmonkey-copy-contact.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-error" _resource="large_strongmonkey-error.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-group" _resource="large_strongmonkey-group.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-idle" _resource="large_strongmonkey-idle.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-information" _resource="large_strongmonkey-information.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-lock" _resource="large_strongmonkey-lock.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-move-contact" _resource="large_strongmonkey-move-contact.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-offline" _resource="large_strongmonkey-offline.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-question" _resource="large_strongmonkey-question.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-remove-contact" _resource="large_strongmonkey-remove-contact.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-remove-group" _resource="large_strongmonkey-remove-group.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-rename-group" _resource="large_strongmonkey-rename-group.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-rename-contact" _resource="large_strongmonkey-rename-contact.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-set-nickname" _resource="large_strongmonkey-set-nickname.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-set-image" _resource="large_strongmonkey-set-image.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-warning" _resource="large_strongmonkey-warning.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-preferences" _resource="large_strongmonkey-preferences.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-server-messages" _resource="large_strongmonkey-server-messages.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-contactlist" _resource="large_strongmonkey-contactlist.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-receive" _resource="large_strongmonkey-transfer-receive.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-send" _resource="large_strongmonkey-transfer-send.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-receive-red" _resource="large_strongmonkey-transfer-receive-red.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-send-red" _resource="large_strongmonkey-transfer-send-red.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-receive-green" _resource="large_strongmonkey-transfer-receive-green.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-send-green" _resource="large_strongmonkey-transfer-send-green.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-server" _resource="large_strongmonkey-server.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-conversation" _resource="large_strongmonkey-conversation.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-conversation-active" _resource="large_strongmonkey-conversation-active.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-conversation-inactive" _resource="large_strongmonkey-conversation-inactive.png" _iconSize="large" />
+		
+		<!-- Medium Small Icons -->
+		<GtkIcon _theme="default" _id="strongmonkey-block" _resource="mediumsmall_strongmonkey-block.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-history" _resource="mediumsmall_strongmonkey-history.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-invite" _resource="mediumsmall_strongmonkey-invite.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-open" _resource="mediumsmall_strongmonkey-transfer-open.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-nudge" _resource="mediumsmall_strongmonkey-nudge.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-notes" _resource="mediumsmall_strongmonkey-notes.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer" _resource="mediumsmall_strongmonkey-transfer.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-clear" _resource="mediumsmall_strongmonkey-clear.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-webcam" _resource="mediumsmall_strongmonkey-webcam.png" _iconSize="medium-small" />
+		<GtkIcon _theme="default" _id="strongmonkey-actions" _resource="mediumsmall_strongmonkey-actions.png" _iconSize="medium-small" />
+		
+		<!-- Small Icons -->
+		<GtkIcon _theme="default" _id="strongmonkey-contactlist" _resource="small_strongmonkey-contactlist.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-start" _resource="small_strongmonkey-start.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-stop" _resource="small_strongmonkey-stop.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-info" _resource="small_strongmonkey-info.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-exit" _resource="small_strongmonkey-exit.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-preferences" _resource="small_strongmonkey-preferences.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-preferences-addins" _resource="small_strongmonkey-preferences-addins.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-preferences-themes" _resource="small_strongmonkey-preferences-themes.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-preferences-windows" _resource="small_strongmonkey-preferences-windows.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-preferences-logging" _resource="small_strongmonkey-preferences-logging.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-preferences-proxy" _resource="small_strongmonkey-preferences-proxy.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-group" _resource="small_strongmonkey-group.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-close" _resource="small_strongmonkey-close.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-ok" _resource="small_strongmonkey-ok.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-away" _resource="small_strongmonkey-status-away.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-brb" _resource="small_strongmonkey-status-brb.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-block" _resource="small_strongmonkey-status-block.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-online" _resource="small_strongmonkey-status-online.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-offline" _resource="small_strongmonkey-status-offline.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-invisible" _resource="small_strongmonkey-status-invisible.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-idle" _resource="small_strongmonkey-status-idle.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-busy" _resource="small_strongmonkey-status-busy.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-reverse" _resource="small_strongmonkey-status-reverse.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-mobile" _resource="small_strongmonkey-status-mobile.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-unknown" _resource="small_strongmonkey-status-unknown.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-status-error" _resource="small_strongmonkey-status-error.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-add-group" _resource="small_strongmonkey-add-group.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-add-contact" _resource="small_strongmonkey-add-contact.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-add" _resource="small_strongmonkey-add.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-delete" _resource="small_strongmonkey-delete.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-apply" _resource="small_strongmonkey-apply.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-block" _resource="small_strongmonkey-block.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-unblock" _resource="small_strongmonkey-unblock.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-contact" _resource="small_strongmonkey-contact.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-idle" _resource="small_strongmonkey-idle.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-offline" _resource="small_strongmonkey-offline.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-cancel" _resource="small_strongmonkey-cancel.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-clear" _resource="small_strongmonkey-clear.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-color-foreground" _resource="small_strongmonkey-color-foreground.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-copy" _resource="small_strongmonkey-copy.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-emoticon" _resource="small_strongmonkey-emoticon.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-insert-emoticon" _resource="small_strongmonkey-insert-emoticon.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-insert-wink" _resource="small_strongmonkey-insert-wink.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-font-bold" _resource="small_strongmonkey-font-bold.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-font-decrease" _resource="small_strongmonkey-font-decrease.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-font-increase" _resource="small_strongmonkey-font-increase.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-font-italic" _resource="small_strongmonkey-font-italic.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-font-normal" _resource="small_strongmonkey-font-normal.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-font-underline" _resource="small_strongmonkey-font-underline.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-font-strikethrough" _resource="small_strongmonkey-font-strikethrough.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-font-face" _resource="small_strongmonkey-font-face.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-spellcheck" _resource="small_strongmonkey-spellcheck.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-image" _resource="small_strongmonkey-image.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-move" _resource="small_strongmonkey-move.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-remove" _resource="small_strongmonkey-remove.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-conversation" _resource="small_strongmonkey-conversation.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-conversation-active" _resource="small_strongmonkey-conversation-active.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-conversation-inactive" _resource="small_strongmonkey-conversation-inactive.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-set" _resource="small_strongmonkey-set.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-find" _resource="small_strongmonkey-find.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-save" _resource="small_strongmonkey-save.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-user-info" _resource="small_strongmonkey-user-info.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-images" _resource="small_strongmonkey-images.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-about" _resource="small_strongmonkey-about.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-help" _resource="small_strongmonkey-help.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer" _resource="small_strongmonkey-transfer.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-invite" _resource="small_strongmonkey-invite.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-open" _resource="small_strongmonkey-transfer-open.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-send" _resource="small_strongmonkey-transfer-send.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-nudge" _resource="small_strongmonkey-nudge.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-transfer-receive" _resource="small_strongmonkey-transfer-receive.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-sounds" _resource="small_strongmonkey-sounds.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-server" _resource="small_strongmonkey-server.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-add-channel" _resource="large_strongmonkey-add-channel.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-browse-channels" _resource="large_strongmonkey-browse-channels.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-rename-channel" _resource="large_strongmonkey-rename-channel.png" _iconSize="large" />
+		<GtkIcon _theme="default" _id="strongmonkey-join-channel" _resource="small_strongmonkey-join-channel.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-part-channel" _resource="small_strongmonkey-part-channel.png" _iconSize="small" />
+		<GtkIcon _theme="default" _id="strongmonkey-sessions" _resource="small_strongmonkey-sessions.png" _iconSize="small" />
+		
+		<GtkIcon _theme="default" _id="strongmonkey-set" _resource="tiny_strongmonkey-set.png" _iconSize="tiny" />
+		<GtkIcon _theme="default" _id="strongmonkey-tab-close" _resource="tiny_strongmonkey-tab-close.png" _iconSize="tiny" />
+	</Extension>
+	
+	<!-- =================================================================== -->
+	<!-- MENU DEFINITIONS: The starting menu structure that will show up in the
+		application when this protocol is selected. There are specific extension
+		points you should be defining menus for that are requirements:
+		
+		- /StrongMonkey/Gui/MainWindow/Menu/Session
+		- /StrongMonkey/Gui/MainWindow/Menu/View
+		
+		See the documentation within existing protocol projects to find out
+		how to use the menus. -->
+	<!-- =================================================================== -->
+	
+	<Extension path = "/StrongMonkey/Gui/MainWindow/Menu">
+		<Menu id="StrongMonkey" label="_StrongMonkey">
+			<MenuItem id="create_session" label="Start Session" icon="strongmonkey-start" event_handler="StrongMonkey.Client.GtkGui.CreateSessionCommand" />
+			<MenuItem id="stop_session" label="Stop Session" icon="strongmonkey-stop" event_handler="StrongMonkey.Client.GtkGui.StopSessionCommand" />
+
+			<MenuSeparator />
+
+			<MenuItem id="stop_all_sessions" label="Stop All Sessions" icon="strongmonkey-stop" event_handler="StrongMonkey.Client.GtkGui.StopAllSessionsCommand" />
+			
+			<MenuSeparator />
+			
+			<MenuItem id="transfers" label="_File Transfers..." icon="strongmonkey-transfer" accel_key="control+t" event_handler="StrongMonkey.Client.GtkGui.FileTransfersCommand" />
+			<MenuItem id="preferences" label="_Preferences..." icon="strongmonkey-preferences" accel_key="control+p" event_handler="StrongMonkey.Client.GtkGui.PreferencesCommand" />
+			
+			<MenuSeparator />
+			
+			<MenuItem id="quit" label="Quit" icon="strongmonkey-exit" event_handler="StrongMonkey.Client.GtkGui.QuitCommand" />
+		</Menu>
+		
+		<Condition id="ActiveSession">
+			<Menu id="Session" label="_Session" />
+			
+			<Menu id="View" label="_View">
+				<Menu id="detail_level" label="Detail Level">
+					<MenuRadio id="detail_compact" label="Compact" event_handler="StrongMonkey.Client.GtkGui.DetailCompactCommand" />
+					<MenuRadio id="detail_normal" label="Normal" group="detail_compact" event_handler="StrongMonkey.Client.GtkGui.DetailNormalCommand" />
+					<MenuRadio id="detail_detailed" label="Detailed" group="detail_compact" event_handler="StrongMonkey.Client.GtkGui.DetailDetailedCommand" />
+				</Menu>
+
+				<Menu id="sort_order" label="Sort Order">
+					<MenuRadio id="sort_by_alpha" label="By _Alphabet" event_handler="StrongMonkey.Client.GtkGui.SortByAlphabetCommand" />
+					<MenuRadio id="sort_by_status" label="By _Status" group="sort_by_alpha" event_handler="StrongMonkey.Client.GtkGui.SortByStatusCommand" />
+					<MenuSeparator />
+					<MenuRadio id="sort_asc" label="A_scending" event_handler="StrongMonkey.Client.GtkGui.SortAscendingCommand" />
+					<MenuRadio id="sort_desc" label="_Descending" group="sort_asc" event_handler="StrongMonkey.Client.GtkGui.SortDescendingCommand" />
+				</Menu>
+				
+				<MenuSeparator id="start_" />
+				
+				<MenuCheck id="show_profile_details" label="_Profile Details" event_handler="StrongMonkey.Client.GtkGui.ShowProfileDetailsCommand" />
+			</Menu>
+		</Condition>
+		
+		<Menu id="Help" label="_Help">
+			<!-- TODO: 
+			<MenuItem id="help" label="_Contents..." icon="strongmonkey-help" />
+			-->
+			
+			<MenuItem id="debug" label="Debug Console..." icon="strongmonkey-preferences-logging" event_handler="StrongMonkey.Client.GtkGui.DebugCommand" />
+			
+			<MenuSeparator />
+			
+			<MenuItem id="about" label="_About StrongMonkey..." icon="strongmonkey-about" event_handler="StrongMonkey.Client.GtkGui.AboutCommand" />
+		</Menu>
+	</Extension>
+	
+<!--	<Extension path = "/StrongMonkey/Gui/MainWindow/Menu/Session">
+		<Condition id="ActiveSession" protocol="GEN">
+			<MenuItem id="set_display_image" label="Set _Display Image..." accel_key="control+d" icon="strongmonkey-images" event_handler="StrongMonkey.Client.GtkGui.SetDisplayImageCommand" />
+		</Condition>
+	</Extension>-->
+	
+<!--	<Extension path = "/StrongMonkey/Gui/MainWindow/Menu/View">
+		<Condition id="ActiveSession" protocol="GEN">
+			<MenuRadio insertbefore="detail_level" id="by_group" label="By Group" event_handler="StrongMonkey.Client.GtkGui.ViewByGroupCommand" />
+			<MenuRadio id="by_status" label="By Status" group="by_group" event_handler="StrongMonkey.Client.GtkGui.ViewByStatusCommand" />
+			
+			<MenuSeparator />
+			
+			<MenuCheck insertafter="show_profile_details" id="show_search" label="Search Bar" event_handler="StrongMonkey.Client.GtkGui.ShowSearchCheckCommand" />
+			
+			<MenuSeparator />
+			
+			<MenuCheck id="show_display_images" label="Contact Images" event_handler="StrongMonkey.Client.GtkGui.ShowDisplayImagesCommand" />
+			<MenuCheck id="show_display_names" label="Contact Names" event_handler="StrongMonkey.Client.GtkGui.ShowDisplayNamesCommand" />
+			<MenuCheck id="show_personal_messages" label="Contact Messages" event_handler="StrongMonkey.Client.GtkGui.ShowPersonalMessagesCommand" />
+			<MenuCheck id="show_nicknames" label="Contact Nicknames" event_handler="StrongMonkey.Client.GtkGui.ShowContactNicknamesCommand" />
+			
+			<MenuSeparator />
+			
+			<MenuCheck id="show_empty_groups" label="Empty Groups" event_handler="StrongMonkey.Client.GtkGui.ShowEmptyGroupsCommand" />
+			<MenuCheck id="show_offline_contacts" label="Offline Contacts" event_handler="StrongMonkey.Client.GtkGui.ShowOfflineContactsCommand" />
+			<MenuCheck id="group_offline_contacts" label="Group Offline Contacts" event_handler="StrongMonkey.Client.GtkGui.GroupOfflineContactsCommand" />
+		</Condition>
+	</Extension>-->
+	
+<!--	<Extension path = "/StrongMonkey/Gui/Tray/Menu">
+		<Condition id="MainWindowVisible" value="true">
+			<MenuCheck id="show_hide" active="true" label="Show Contact List" event_handler="StrongMonkey.Client.GtkGui.ShowHideMainWindowCommand" />
+		</Condition>
+		<Condition id="MainWindowVisible" value="false">
+			<MenuCheck id="show_hide" active="false" label="Show Contact List" event_handler="StrongMonkey.Client.GtkGui.ShowHideMainWindowCommand" />
+		</Condition>
+		
+		<MenuCheck id="mute_sounds" label="Mute Sounds" event_handler="StrongMonkey.Client.GtkGui.MuteSoundsCommand" />
+		
+		<MenuSeparator />
+		
+		<Menu id="Presence" label="Set Presence">
+			<MenuItem id="online" label="_Online" icon="strongmonkey-status-online" event_handler="StrongMonkey.Client.GtkGui.SetPresenceCommand"/>
+			<MenuItem id="away" label="_Away" icon="strongmonkey-status-away" event_handler="StrongMonkey.Client.GtkGui.SetPresenceCommand"/>
+			<MenuItem id="busy" label="_Busy" icon="strongmonkey-status-busy" event_handler="StrongMonkey.Client.GtkGui.SetPresenceCommand"/>
+			<MenuItem id="invisible" label="_Invisible" icon="strongmonkey-status-invisible" event_handler="StrongMonkey.Client.GtkGui.SetPresenceCommand"/>
+			<MenuItem id="offline" label="O_ffline" icon="strongmonkey-status-offline" event_handler="StrongMonkey.Client.GtkGui.SetPresenceCommand"/>
+		</Menu>
+		
+		<Menu id="QueueActivities" label="Queue Activities">
+			<MenuRadio id="radio_always" label="Always" event_handler="StrongMonkey.Client.GtkGui.QueueAlwaysCommand" />
+			<MenuRadio id="radio_away" group="radio_always" label="When Away" event_handler="StrongMonkey.Client.GtkGui.QueueWhenAwayCommand" />
+			<MenuRadio id="radio_never" group="radio_always" label="Never" event_handler="StrongMonkey.Client.GtkGui.QueueNeverCommand" />
+		</Menu>
+		
+		<MenuSeparator/>
+		
+		<MenuItem id="prefs" label="Preferences" icon="strongmonkey-preferences" event_handler="StrongMonkey.Client.GtkGui.PreferencesCommand"/>
+		
+		<MenuSeparator/>
+		
+		<MenuItem id="quit" label="_Quit" icon="strongmonkey-exit" event_handler="StrongMonkey.Client.GtkGui.QuitCommand" />
+	</Extension>-->
+	
+<!--	<Extension path = "/StrongMonkey/Gui/MessageDisplay/Emoticons/Menu">
+		<MenuItem id="assimilate" label="Assimilate" icon="strongmonkey-add" event_handler="StrongMonkey.Client.GtkGui.AssimilateEmoticonCommand" />
+	</Extension>-->
+</Addin>

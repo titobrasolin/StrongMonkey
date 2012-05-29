@@ -40,6 +40,12 @@
     <Reference Include="NLog">
       <HintPath>..\Dlls\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Mono.Addins.Setup, Version=0.6.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <Private>False</Private>
+      <Package>mono-addins-setup</Package>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -62,6 +68,14 @@
       <DependentUpon>ServiceSettings.settings</DependentUpon>
     </Compile>
     <Compile Include="GettextCatalog.cs" />
+    <Compile Include="Utilities\ArgumentUtility.cs" />
+    <Compile Include="Utilities\CoreUtility.cs" />
+    <Compile Include="Utilities\FileUtility.cs" />
+    <Compile Include="Utilities\ThrowUtility.cs" />
+    <Compile Include="Utilities\AddinUtility.cs" />
+    <Compile Include="Extensions\ContextExtension.cs" />
+    <Compile Include="Interfaces\IExtensionContext.cs" />
+    <Compile Include="Extensions\EntryPointExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -72,4 +86,19 @@
     <None Include="README" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <EmbeddedResource Include="StrongMonkey.Core.addin" />
+  </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@ using System.Reflection;
 using Mono.Posix;
 using NLog;
 using StrongMonkey.Core;
+using StrongMonkey.Core.Utilities;
 
 namespace StrongMonkey.Startup
 {
@@ -84,10 +85,10 @@ namespace StrongMonkey.Startup
 
 				Gtk.Application.Run ();
 			} else {
-				// CoreUtility.Initialize (exe, appName, debug);
+				CoreUtility.Initialize (exe, appName, debug);
 				WriteInstancePid (lockFile);
 				
-				// AddinUtility.Initialize ();
+				AddinUtility.Initialize ();
 			}
 		}
 

@@ -13,11 +13,7 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
-		this.Icon = global::Stetic.IconLoader.LoadIcon (
-			this,
-			"gtk-dialog-info",
-			global::Gtk.IconSize.Menu
-		);
+		this.Icon = global::Stetic.IconLoader.LoadIcon (this, "gtk-dialog-info", global::Gtk.IconSize.Menu);
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		this.BorderWidth = ((uint)(6));
 		// Container child MainWindow.Gtk.Container+ContainerChild

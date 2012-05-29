@@ -42,15 +42,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="GLibLogging.cs" />
+    <Compile Include="Main.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\StrongMonkey.Core\StrongMonkey.Core.csproj">
       <Project>{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}</Project>
       <Name>StrongMonkey.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrongMonkey.Client.GtkGui\StrongMonkey.Client.GtkGui.csproj">
+      <Project>{D22ED3B9-D118-4540-AC65-DC1E7E097ACC}</Project>
+      <Name>StrongMonkey.Client.GtkGui</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

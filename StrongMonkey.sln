@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Sample1", "Str
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Startup", "StrongMonkey.Startup\StrongMonkey.Startup.csproj", "{F456A661-95DF-46B7-BE3A-551701B1A770}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Client.GtkGui", "StrongMonkey.Client.GtkGui\StrongMonkey.Client.GtkGui.csproj", "{D22ED3B9-D118-4540-AC65-DC1E7E097ACC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -38,6 +40,10 @@ Global
 		{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}.Debug|x86.Build.0 = Debug|Any CPU
 		{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}.Release|x86.ActiveCfg = Release|Any CPU
 		{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}.Release|x86.Build.0 = Release|Any CPU
+		{D22ED3B9-D118-4540-AC65-DC1E7E097ACC}.Debug|x86.ActiveCfg = Debug|x86
+		{D22ED3B9-D118-4540-AC65-DC1E7E097ACC}.Debug|x86.Build.0 = Debug|x86
+		{D22ED3B9-D118-4540-AC65-DC1E7E097ACC}.Release|x86.ActiveCfg = Release|x86
+		{D22ED3B9-D118-4540-AC65-DC1E7E097ACC}.Release|x86.Build.0 = Release|x86
 		{F456A661-95DF-46B7-BE3A-551701B1A770}.Debug|x86.ActiveCfg = Debug|x86
 		{F456A661-95DF-46B7-BE3A-551701B1A770}.Debug|x86.Build.0 = Debug|x86
 		{F456A661-95DF-46B7-BE3A-551701B1A770}.Release|x86.ActiveCfg = Release|x86

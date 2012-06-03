@@ -145,7 +145,7 @@ namespace StrongMonkey.Startup
 				if (arg.StartsWith ("--appName="))
 					return arg.Substring (10);
 			}
-
+			//
 			return DefaultAppName;
 		}
 	}

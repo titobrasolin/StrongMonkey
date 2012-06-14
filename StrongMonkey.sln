@@ -5,8 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Core", "Strong
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLLs", "DLLs", "{98DFA991-8295-45B2-9841-4A7792FB952D}"
 	ProjectSection(SolutionItems) = preProject
-		Dlls\CookComputing.XmlRpcV2.dll = Dlls\CookComputing.XmlRpcV2.dll
 		Dlls\NLog.dll = Dlls\NLog.dll
+		Dlls\CookComputing.XmlRpcV2.dll = Dlls\CookComputing.XmlRpcV2.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Drupal", "StrongMonkey.Drupal\StrongMonkey.Drupal.csproj", "{BA02E74E-EDA9-4654-AFC4-C67BD77D6047}"

@@ -14,6 +14,8 @@ public partial class MainWindow: Gtk.Window
 		ServiceSettings.Default.DrupalURL = "http://strongmonkey.net";
 		ServiceSettings.Default.EndPoint = "services/xmlrpc";
 
+		//XmlRpcStruct geo = DrupalConnection.GeocoderIndex();
+
 		view.AppendColumn (
 			"Operation",
 			new Gtk.CellRendererText (),
@@ -42,8 +44,14 @@ public partial class MainWindow: Gtk.Window
 	Gtk.TreeStore MyTreeStore {
 		get {
 			if (myTreeStore == null) {
+				DrupalConnection.Login("admin", "Titbra.21");
+
 				myTreeStore = new Gtk.TreeStore (typeof(string), typeof(string));
 				XmlRpcStruct idx = DrupalConnection.DefinitionIndex ();
+
+
+				XmlRpcStruct geo = DrupalConnection.GeocoderRetrieve("default", "Via Brotto", "default");
+
 				XmlRpcStruct resources = (XmlRpcStruct)idx ["resources"];
 
 				Gtk.TreeIter iter;

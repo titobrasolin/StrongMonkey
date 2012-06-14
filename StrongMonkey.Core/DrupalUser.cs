@@ -14,9 +14,9 @@ namespace StrongMonkey.Core
 		public string signature_format;
 		public string theme;
 		public string timezone;
-		public XmlRpcStruct data;
+		public object data;
 		public string created;
-		public DrupalFile picture;
+		public object picture;
 		public string status;
 		public XmlRpcStruct rdf_mapping;
 		public XmlRpcStruct roles;

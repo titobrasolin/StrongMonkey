@@ -66,6 +66,9 @@ namespace StrongMonkey.Core
 
 		event DrupalAsyncCompletedEventHandler<XmlRpcStruct> DefinitionIndexCompleted;
 
+		event DrupalAsyncCompletedEventHandler<XmlRpcStruct> GeocoderRetrieveCompleted;
+		event DrupalAsyncCompletedEventHandler<XmlRpcStruct> GeocoderIndexCompleted;
+
 		#endregion
 
 		bool Login (string username, string password);
@@ -248,6 +251,16 @@ namespace StrongMonkey.Core
 		
 		XmlRpcStruct DefinitionIndex();
 		void DefinitionIndexAsync(object userState);
+
+		#endregion
+
+		#region Geocoder
+		
+		XmlRpcStruct GeocoderRetrieve(string handler, string data, string output);
+		void GeocoderRetrieveAsync(string handler, string data, string output, object userState);
+
+		XmlRpcStruct GeocoderIndex();
+		void GeocoderIndexAsync(object userState);
 
 		#endregion
 	}

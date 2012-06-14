@@ -492,5 +492,27 @@ namespace StrongMonkey.Drupal
         XmlRpcStruct EndDefinitionIndex(IAsyncResult asyncResult);
 
 		#endregion
+
+		#region Geocoder
+
+		[XmlRpcMethod("geocoder.retrieve")]
+        XmlRpcStruct GeocoderRetrieve(string handler, string data, string output);
+		
+		[XmlRpcBegin("geocoder.retrieve")]
+        IAsyncResult BeginGeocoderRetrieve(string handler, string data, string output, AsyncCallback callback, object asyncState);
+		
+		[XmlRpcEnd("geocoder.retrieve")]
+        XmlRpcStruct EndGeocoderRetrieve(IAsyncResult asyncResult);
+
+		[XmlRpcMethod("geocoder.index")]
+        XmlRpcStruct GeocoderIndex();
+
+		[XmlRpcBegin("geocoder.index")]
+        IAsyncResult BeginGeocoderIndex(AsyncCallback callback, object asyncState);
+
+		[XmlRpcEnd("geocoder.index")]
+        XmlRpcStruct EndGeocoderIndex(IAsyncResult asyncResult);
+
+		#endregion
 	}
 }

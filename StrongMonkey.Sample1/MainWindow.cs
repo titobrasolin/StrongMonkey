@@ -3,6 +3,9 @@ using Gtk;
 using Mono.Addins;
 using StrongMonkey.Core;
 using CookComputing.XmlRpc;
+using System.Net;
+using System.Collections.Generic;
+using System.Text;
 
 public partial class MainWindow: Gtk.Window
 {	
@@ -11,10 +14,13 @@ public partial class MainWindow: Gtk.Window
 		Build ();
 
 		ServiceSettings.Default.CleanURL = true;
-		ServiceSettings.Default.DrupalURL = "http://strongmonkey.net";
+		ServiceSettings.Default.DrupalURL = "http://www.strongmonkey.net";
 		ServiceSettings.Default.EndPoint = "services/xmlrpc";
 
-		//XmlRpcStruct geo = DrupalConnection.GeocoderIndex();
+		DrupalConnection.Login("admin", "Titbra.21");
+		XmlRpcStruct geo = DrupalConnection.GeocoderIndex();
+
+		string res = DrupalConnection.GeocoderRetrieve("yahoo", "Via Brotto 10, 35128, Padova, Italy", "json");
 
 		view.AppendColumn (
 			"Operation",
@@ -44,14 +50,9 @@ public partial class MainWindow: Gtk.Window
 	Gtk.TreeStore MyTreeStore {
 		get {
 			if (myTreeStore == null) {
-				DrupalConnection.Login("admin", "Titbra.21");
-
 				myTreeStore = new Gtk.TreeStore (typeof(string), typeof(string));
+
 				XmlRpcStruct idx = DrupalConnection.DefinitionIndex ();
-
-
-				XmlRpcStruct geo = DrupalConnection.GeocoderRetrieve("default", "Via Brotto", "default");
-
 				XmlRpcStruct resources = (XmlRpcStruct)idx ["resources"];
 
 				Gtk.TreeIter iter;
@@ -59,12 +60,12 @@ public partial class MainWindow: Gtk.Window
 				// TODO: DISPLAY ACTIONS, RELATIONSHIPS AND OPERATIONS.
 				foreach (string resKey in resources.Keys) {
 					iter = myTreeStore.AppendValues (resKey);
-					operations = ((XmlRpcStruct)resources[resKey])["operations"] as XmlRpcStruct;
+					operations = ((XmlRpcStruct)resources [resKey]) ["operations"] as XmlRpcStruct;
 					if (operations == null) {
-						operations = ((XmlRpcStruct)resources[resKey])["actions"] as XmlRpcStruct;
+						operations = ((XmlRpcStruct)resources [resKey]) ["actions"] as XmlRpcStruct;
 					}
 					foreach (string opKey in operations.Keys) {
-						myTreeStore.AppendValues (iter, opKey, ((int)((XmlRpcStruct)operations[opKey])["enabled"] > 0).ToString().ToLower());
+						myTreeStore.AppendValues (iter, opKey, ((int)((XmlRpcStruct)operations [opKey]) ["enabled"] > 0).ToString ().ToLower ());
 					}
 				}
 			}

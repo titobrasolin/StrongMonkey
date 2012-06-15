@@ -116,7 +116,7 @@ namespace StrongMonkey.Drupal
 		public event DrupalAsyncCompletedEventHandler<object> MenuRetrieveCompleted;
 		public event DrupalAsyncCompletedEventHandler<XmlRpcStruct> ViewsRetrieveCompleted;
 		public event DrupalAsyncCompletedEventHandler<XmlRpcStruct> DefinitionIndexCompleted;
-		public event DrupalAsyncCompletedEventHandler<XmlRpcStruct> GeocoderRetrieveCompleted;
+		public event DrupalAsyncCompletedEventHandler<string> GeocoderRetrieveCompleted;
 		public event DrupalAsyncCompletedEventHandler<XmlRpcStruct> GeocoderIndexCompleted;
 
 		#endregion
@@ -254,7 +254,6 @@ namespace StrongMonkey.Drupal
 				_sessionData = ServiceSystem.UserLogin (username, password);
 				if (_sessionData.user.name == username) {
 					_isLoggedIn = true;
-					_serviceSystem.CookieContainer.Add(new Cookie(_sessionData.session_name, _sessionData.sessid, "/", "*"));
 				} else {
 					_isLoggedIn = false;
 					HandleException (new Exception (Catalog.GetString ("Unable to login")), "Login");
@@ -1880,10 +1879,10 @@ namespace StrongMonkey.Drupal
 
 		#region Geocoder
 
-		public XmlRpcStruct GeocoderRetrieve(string handler, string data, string output)
+		public string GeocoderRetrieve(string handler, string data, string output)
 		{
 			ClearErrors ();
-			XmlRpcStruct res = null;
+			string res = "";
 			try {
 				res = ServiceSystem.GeocoderRetrieve (handler, data, output);
 			} catch (Exception ex) {
@@ -1904,13 +1903,13 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.GeocoderRetrieveCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				XmlRpcStruct result = null;
+				string result = "";
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndGeocoderRetrieve (asyncResult);
-					this.GeocoderRetrieveCompleted (this, new DrupalAsyncCompletedEventArgs<XmlRpcStruct> (result, null, asyncResult.AsyncState));
+					this.GeocoderRetrieveCompleted (this, new DrupalAsyncCompletedEventArgs<string> (result, null, asyncResult.AsyncState));
 				} catch (Exception ex) {
 					HandleException (ex, "OnGeocoderRetrieveCompleted");
-					this.GeocoderRetrieveCompleted (this, new DrupalAsyncCompletedEventArgs<XmlRpcStruct> (result, ex, asyncResult.AsyncState));
+					this.GeocoderRetrieveCompleted (this, new DrupalAsyncCompletedEventArgs<string> (result, ex, asyncResult.AsyncState));
 				}
 			}
 		}

@@ -496,13 +496,13 @@ namespace StrongMonkey.Drupal
 		#region Geocoder
 
 		[XmlRpcMethod("geocoder.retrieve")]
-        XmlRpcStruct GeocoderRetrieve(string handler, string data, string output);
-		
+        string GeocoderRetrieve(string handler, string data, string output);
+
 		[XmlRpcBegin("geocoder.retrieve")]
         IAsyncResult BeginGeocoderRetrieve(string handler, string data, string output, AsyncCallback callback, object asyncState);
 		
 		[XmlRpcEnd("geocoder.retrieve")]
-        XmlRpcStruct EndGeocoderRetrieve(IAsyncResult asyncResult);
+        string EndGeocoderRetrieve(IAsyncResult asyncResult);
 
 		[XmlRpcMethod("geocoder.index")]
         XmlRpcStruct GeocoderIndex();

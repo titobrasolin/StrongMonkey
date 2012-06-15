@@ -17,11 +17,6 @@ public partial class MainWindow: Gtk.Window
 		ServiceSettings.Default.DrupalURL = "http://www.strongmonkey.net";
 		ServiceSettings.Default.EndPoint = "services/xmlrpc";
 
-		DrupalConnection.Login("admin", "Titbra.21");
-		XmlRpcStruct geo = DrupalConnection.GeocoderIndex();
-
-		string res = DrupalConnection.GeocoderRetrieve("yahoo", "Via Brotto 10, 35128, Padova, Italy", "json");
-
 		view.AppendColumn (
 			"Operation",
 			new Gtk.CellRendererText (),

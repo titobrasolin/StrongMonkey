@@ -30,15 +30,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Mono.Addins, Version=0.6.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
-      <Package>mono-addins</Package>
-    </Reference>
+    <Reference Include="Mono.Addins, Version=0.6.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
     <Reference Include="Mono.Posix" />
-    <Reference Include="CookComputing.XmlRpcV2">
-      <HintPath>..\Dlls\CookComputing.XmlRpcV2.dll</HintPath>
-    </Reference>
     <Reference Include="NLog">
-      <HintPath>..\Dlls\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.2.1.0\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2">
+      <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -55,5 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -108,18 +108,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Stetic.Custom" id="cboSessionPlaceHolder">
-                    <property name="MemberName" />
-                    <property name="CreationFunction">CreateCustomWidget</property>
-                    <property name="Int1">0</property>
-                    <property name="Int2">0</property>
-                  </widget>
-                  <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
+                  <placeholder />
                 </child>
                 <child>
                   <widget class="Gtk.Button" id="btnDisconnect">

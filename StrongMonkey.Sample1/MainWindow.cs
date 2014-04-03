@@ -60,7 +60,7 @@ public partial class MainWindow: Gtk.Window
 						operations = ((XmlRpcStruct)resources [resKey]) ["actions"] as XmlRpcStruct;
 					}
 					foreach (string opKey in operations.Keys) {
-						myTreeStore.AppendValues (iter, opKey, ((int)((XmlRpcStruct)operations [opKey]) ["enabled"] > 0).ToString ().ToLower ());
+						myTreeStore.AppendValues (iter, opKey, (Convert.ToInt32(((XmlRpcStruct)operations [opKey]) ["enabled"]) > 0).ToString ().ToLower ());
 					}
 				}
 			}

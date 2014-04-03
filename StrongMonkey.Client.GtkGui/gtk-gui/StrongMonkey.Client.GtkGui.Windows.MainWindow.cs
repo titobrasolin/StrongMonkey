@@ -14,9 +14,8 @@ namespace StrongMonkey.Client.GtkGui.Windows
 		private global::Gtk.Label label1;
 		private global::Gtk.HBox hboxSessions;
 		private global::Gtk.Button btnConnect;
-		private global::Stetic.Custom cboSessionPlaceHolder;
 		private global::Gtk.Button btnDisconnect;
-		
+
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
@@ -88,69 +87,36 @@ namespace StrongMonkey.Client.GtkGui.Windows
 			this.btnConnect.CanFocus = true;
 			this.btnConnect.Name = "btnConnect";
 			this.btnConnect.UseUnderline = true;
-			// Container child btnConnect.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w6 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
-			// Container child GtkAlignment.Gtk.Container+ContainerChild
-			global::Gtk.HBox w7 = new global::Gtk.HBox ();
-			w7.Spacing = 2;
-			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Image w8 = new global::Gtk.Image ();
-			w8.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-connect", global::Gtk.IconSize.Menu);
-			w7.Add (w8);
-			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Label w10 = new global::Gtk.Label ();
-			w7.Add (w10);
-			w6.Add (w7);
-			this.btnConnect.Add (w6);
+			global::Gtk.Image w6 = new global::Gtk.Image ();
+			w6.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-connect", global::Gtk.IconSize.Menu);
+			this.btnConnect.Image = w6;
 			this.hboxSessions.Add (this.btnConnect);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hboxSessions [this.btnConnect]));
-			w14.Position = 0;
-			w14.Expand = false;
-			w14.Fill = false;
-			// Container child hboxSessions.Gtk.Box+BoxChild
-			this.cboSessionPlaceHolder = new global::Stetic.Custom ();
-			this.cboSessionPlaceHolder.Name = "cboSessionPlaceHolder";
-			this.cboSessionPlaceHolder.CreationFunction = "CreateCustomWidget";
-			this.cboSessionPlaceHolder.Int1 = 0;
-			this.cboSessionPlaceHolder.Int2 = 0;
-			this.hboxSessions.Add (this.cboSessionPlaceHolder);
-			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hboxSessions [this.cboSessionPlaceHolder]));
-			w15.Position = 1;
-			w15.Expand = false;
-			w15.Fill = false;
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hboxSessions [this.btnConnect]));
+			w7.Position = 0;
+			w7.Expand = false;
+			w7.Fill = false;
 			// Container child hboxSessions.Gtk.Box+BoxChild
 			this.btnDisconnect = new global::Gtk.Button ();
 			this.btnDisconnect.TooltipMarkup = "Stop currently selected session.";
 			this.btnDisconnect.CanFocus = true;
 			this.btnDisconnect.Name = "btnDisconnect";
 			this.btnDisconnect.UseUnderline = true;
-			// Container child btnDisconnect.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w16 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
-			// Container child GtkAlignment.Gtk.Container+ContainerChild
-			global::Gtk.HBox w17 = new global::Gtk.HBox ();
-			w17.Spacing = 2;
-			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Image w18 = new global::Gtk.Image ();
-			w18.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-disconnect", global::Gtk.IconSize.Menu);
-			w17.Add (w18);
-			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Label w20 = new global::Gtk.Label ();
-			w17.Add (w20);
-			w16.Add (w17);
-			this.btnDisconnect.Add (w16);
+			global::Gtk.Image w8 = new global::Gtk.Image ();
+			w8.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-disconnect", global::Gtk.IconSize.Menu);
+			this.btnDisconnect.Image = w8;
 			this.hboxSessions.Add (this.btnDisconnect);
-			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hboxSessions [this.btnDisconnect]));
-			w24.Position = 2;
-			w24.Expand = false;
-			w24.Fill = false;
+			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hboxSessions [this.btnDisconnect]));
+			w9.Position = 2;
+			w9.Expand = false;
+			w9.Fill = false;
 			this.vbox.Add (this.hboxSessions);
-			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.vbox [this.hboxSessions]));
-			w25.Position = 1;
-			w25.Expand = false;
-			w25.Fill = false;
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox [this.hboxSessions]));
+			w10.Position = 1;
+			w10.Expand = false;
+			w10.Fill = false;
 			this.vboxBorderless.Add (this.vbox);
-			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.vboxBorderless [this.vbox]));
-			w26.Position = 2;
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vboxBorderless [this.vbox]));
+			w11.Position = 2;
 			this.Add (this.vboxBorderless);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

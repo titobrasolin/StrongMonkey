@@ -3,18 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Core", "StrongMonkey.Core\StrongMonkey.Core.csproj", "{CC9FF19D-BA17-4E87-A21E-B37C21954B3C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLLs", "DLLs", "{98DFA991-8295-45B2-9841-4A7792FB952D}"
-	ProjectSection(SolutionItems) = preProject
-		Dlls\NLog.dll = Dlls\NLog.dll
-		Dlls\CookComputing.XmlRpcV2.dll = Dlls\CookComputing.XmlRpcV2.dll
-		Dlls\AdamTibi.Web.Security.dll = Dlls\AdamTibi.Web.Security.dll
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Drupal", "StrongMonkey.Drupal\StrongMonkey.Drupal.csproj", "{BA02E74E-EDA9-4654-AFC4-C67BD77D6047}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F939A51-AA37-47DA-A927-A410B8E0510E}"
 	ProjectSection(SolutionItems) = preProject
 		README = README
+		packages\repositories.config = packages\repositories.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongMonkey.Sample1", "StrongMonkey.Sample1\StrongMonkey.Sample1.csproj", "{49F064A6-700E-4FC2-A5B8-549B0C11F014}"

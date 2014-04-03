@@ -540,7 +540,7 @@ namespace StrongMonkey.Drupal
 		public DrupalFile FileCreate (DrupalFile file)
 		{
 			ClearErrors ();
-			DrupalFile res;
+			DrupalFile res = default(DrupalFile);
 			try {
 				res = ServiceSystem.FileCreate (file);
 			} catch (Exception ex) {
@@ -561,7 +561,7 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.FileCreateCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				DrupalFile result;
+				DrupalFile result = default(DrupalFile);
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndFileCreate (asyncResult);
 					this.FileCreateCompleted (this, new DrupalAsyncCompletedEventArgs<DrupalFile> (result, null, asyncResult.AsyncState));
@@ -575,7 +575,7 @@ namespace StrongMonkey.Drupal
 		public DrupalFile FileRetrieve (int fid, bool include_file_contents, bool get_image_style)
 		{
 			ClearErrors ();
-			DrupalFile res;
+			DrupalFile res = default(DrupalFile);
 			try {
 				res = ServiceSystem.FileRetrieve (fid, include_file_contents, get_image_style);
 			} catch (Exception ex) {
@@ -596,7 +596,7 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.FileRetrieveCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				DrupalFile result;
+				DrupalFile result = default(DrupalFile);
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndFileRetrieve (asyncResult);
 					this.FileRetrieveCompleted (this, new DrupalAsyncCompletedEventArgs<DrupalFile> (result, null, asyncResult.AsyncState));
@@ -933,7 +933,7 @@ namespace StrongMonkey.Drupal
 		public DrupalSessionObject SystemConnect ()
 		{
 			ClearErrors ();
-			DrupalSessionObject res;
+			DrupalSessionObject res = default(DrupalSessionObject);
 			try {
 				res = ServiceSystem.SystemConnect ();
 			} catch (Exception ex) {
@@ -954,7 +954,7 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.SystemConnectCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				DrupalSessionObject result;
+				DrupalSessionObject result = default(DrupalSessionObject);
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndSystemConnect (asyncResult);
 					this.SystemConnectCompleted (this, new DrupalAsyncCompletedEventArgs<DrupalSessionObject> (result, null, asyncResult.AsyncState));
@@ -1481,7 +1481,7 @@ namespace StrongMonkey.Drupal
 		public DrupalUser UserRetrieve (int uid)
 		{
 			ClearErrors ();
-			DrupalUser res;
+			DrupalUser res = default(DrupalUser);
 			try {
 				res = ServiceSystem.UserRetrieve (uid);
 			} catch (Exception ex) {
@@ -1502,7 +1502,7 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.UserRetrieveCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				DrupalUser result;
+				DrupalUser result = default(DrupalUser);
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndUserRetrieve (asyncResult);
 					this.UserRetrieveCompleted (this, new DrupalAsyncCompletedEventArgs<DrupalUser> (result, null, asyncResult.AsyncState));
@@ -1516,7 +1516,7 @@ namespace StrongMonkey.Drupal
 		public DrupalUser UserCreate (XmlRpcStruct account)
 		{
 			ClearErrors ();
-			DrupalUser res;
+			DrupalUser res = default(DrupalUser);
 			try {
 				res = ServiceSystem.UserCreate (account);
 			} catch (Exception ex) {
@@ -1537,7 +1537,7 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.UserCreateCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				DrupalUser result;
+				DrupalUser result = default(DrupalUser);
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndUserCreate (asyncResult);
 					this.UserCreateCompleted (this, new DrupalAsyncCompletedEventArgs<DrupalUser> (result, null, asyncResult.AsyncState));
@@ -1551,7 +1551,7 @@ namespace StrongMonkey.Drupal
 		public DrupalUser UserUpdate (int uid, XmlRpcStruct account)
 		{
 			ClearErrors ();
-			DrupalUser res;
+			DrupalUser res = default(DrupalUser);
 			try {
 				res = ServiceSystem.UserUpdate (uid, account);
 			} catch (Exception ex) {
@@ -1572,7 +1572,7 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.UserUpdateCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				DrupalUser result;
+				DrupalUser result = default(DrupalUser);
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndUserUpdate (asyncResult);
 					this.UserUpdateCompleted (this, new DrupalAsyncCompletedEventArgs<DrupalUser> (result, null, asyncResult.AsyncState));
@@ -1656,7 +1656,7 @@ namespace StrongMonkey.Drupal
 		public DrupalSessionObject UserLogin (string username, string password)
 		{
 			ClearErrors ();
-			DrupalSessionObject res;
+			DrupalSessionObject res = default(DrupalSessionObject);
 			try {
 				res = ServiceSystem.UserLogin (username, password);
 			} catch (Exception ex) {
@@ -1677,7 +1677,7 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.UserLoginCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				DrupalSessionObject result;
+				DrupalSessionObject result = default(DrupalSessionObject);
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndUserLogin (asyncResult);
 					this.UserLoginCompleted (this, new DrupalAsyncCompletedEventArgs<DrupalSessionObject> (result, null, asyncResult.AsyncState));
@@ -1726,7 +1726,7 @@ namespace StrongMonkey.Drupal
 		public DrupalUser UserRegister (XmlRpcStruct account)
 		{
 			ClearErrors ();
-			DrupalUser res;
+			DrupalUser res = default(DrupalUser);
 			try {
 				res = ServiceSystem.UserRegister (account);
 			} catch (Exception ex) {
@@ -1747,7 +1747,7 @@ namespace StrongMonkey.Drupal
 		{
 			if (this.UserRegisterCompleted != null) {
 				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
-				DrupalUser result;
+				DrupalUser result = default(DrupalUser);
 				try {
 					result = ((IServiceSystem)clientResult.ClientProtocol).EndUserRegister (asyncResult);
 					this.UserRegisterCompleted (this, new DrupalAsyncCompletedEventArgs<DrupalUser> (result, null, asyncResult.AsyncState));

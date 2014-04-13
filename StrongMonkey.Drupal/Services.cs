@@ -64,6 +64,7 @@ namespace StrongMonkey.Drupal
 		private AsyncCallback DefinitionIndexOperationCompleted;
 		private AsyncCallback GeocoderRetrieveOperationCompleted;
 		private AsyncCallback GeocoderIndexOperationCompleted;
+		private AsyncCallback FlagIsFlaggedOperationCompleted;
 
 		#endregion
 		
@@ -118,6 +119,7 @@ namespace StrongMonkey.Drupal
 		public event DrupalAsyncCompletedEventHandler<XmlRpcStruct> DefinitionIndexCompleted;
 		public event DrupalAsyncCompletedEventHandler<string> GeocoderRetrieveCompleted;
 		public event DrupalAsyncCompletedEventHandler<XmlRpcStruct> GeocoderIndexCompleted;
+		public event DrupalAsyncCompletedEventHandler<bool> FlagIsFlaggedCompleted;
 
 		#endregion
 
@@ -267,6 +269,26 @@ namespace StrongMonkey.Drupal
 
 		#region Flag
 		
+		public bool FlagIsFlagged (string flag_name, int content_id)
+		{
+			ClearErrors ();
+			bool result = false;
+			try {
+				result = ServiceSystem.FlagIsFlagged (flag_name, content_id);
+			} catch (Exception ex) {
+				HandleException (ex, "FlagIsFlagged");
+			}
+			return result;
+		}
+
+		public void FlagIsFlaggedAsync (string flag_name, int content_id, object asyncState)
+		{
+			if (this.FlagIsFlaggedOperationCompleted == null) {
+				this.FlagIsFlaggedOperationCompleted = new AsyncCallback (this.OnFlagIsFlaggedCompleted);
+			}
+			ServiceSystem.BeginFlagIsFlagged (flag_name, content_id, this.FlagIsFlaggedOperationCompleted, asyncState);
+		}
+
 		public bool FlagIsFlagged (string flag_name, int content_id, int uid)
 		{
 			ClearErrors ();
@@ -278,10 +300,28 @@ namespace StrongMonkey.Drupal
 			}
 			return result;
 		}
-		
+
 		public void FlagIsFlaggedAsync (string flag_name, int content_id, int uid, object asyncState)
 		{
-			throw new NotImplementedException ();
+			if (this.FlagIsFlaggedOperationCompleted == null) {
+				this.FlagIsFlaggedOperationCompleted = new AsyncCallback (this.OnFlagIsFlaggedCompleted);
+			}
+			ServiceSystem.BeginFlagIsFlagged (flag_name, content_id, uid, this.FlagIsFlaggedOperationCompleted, asyncState);
+		}
+
+		void OnFlagIsFlaggedCompleted (IAsyncResult asyncResult)
+		{
+			if (this.FlagIsFlaggedCompleted != null) {
+				XmlRpcAsyncResult clientResult = (XmlRpcAsyncResult)asyncResult;
+				bool result = false;
+				try {
+					result = ((IServiceSystem)clientResult.ClientProtocol).EndFlagIsFlagged (asyncResult);
+					this.FlagIsFlaggedCompleted (this, new DrupalAsyncCompletedEventArgs<bool> (result, null, asyncResult.AsyncState));
+				} catch (Exception ex) {
+					HandleException (ex, "OnFlagIsFlaggedCompleted");
+					this.FlagIsFlaggedCompleted (this, new DrupalAsyncCompletedEventArgs<bool> (result, ex, asyncResult.AsyncState));
+				}
+			}
 		}
 
 		#endregion
